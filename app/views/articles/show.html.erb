@@ -1,13 +1,14 @@
-<h1> This is the show page</h1>
+<h2 class = "col-xs-offset-4"><%= @article.title%></h2>
+<div class="well col-xs-6 col-xs-offset-2">
+  <h4 class="center descriptions"><strong>description:</strong> </h4>
+  <hr>
+  <%= simple_format(@article.description)%>
+  <div class="article-actions">
+    <%= link_to 'edit article', edit_article_path(@article), class: "btn btn-xs btn-primary"%>
+    <%= link_to 'delete article', article_path(@article), method: :delete,
+                                                          data: {confirm: "are you sure you want to delete this article?"},
+                                                          class: "btn btn-xs btn-danger"%>
+    <%= link_to 'show all articles', articles_path, class: "btn btn-xs btn-success" %>
+  </div>
 
-  <p>
-    title: <%= @article.title%>
-  </p>
-
-  <p>
-    description: <%= @article.description%>
-  </p>
-
-<p>
-  <%= link_to 'listings page', articles_path %>
-</p>
+</div>
